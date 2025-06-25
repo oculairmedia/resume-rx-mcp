@@ -1,0 +1,23 @@
+services:
+  mcp_server: # Explicitly naming the service
+    image: oculair/resumexrmcp:1.0.11
+    ports:
+      - "9222:3001"
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=${NODE_ENV:-production}
+      # Reactive Resume Credentials (values loaded from .env via env_file)
+      - RX_RESUME_EMAIL=${RX_RESUME_EMAIL}
+      - RX_RESUME_PASSWORD=${RX_RESUME_PASSWORD}
+      - RX_RESUME_BASE_URL=${RX_RESUME_BASE_URL}
+      - RX_RESUME_PUBLIC_URL=${RX_RESUME_PUBLIC_URL}
+      # XBackbone Credentials (optional, loaded from .env via env_file)
+      - XBACKBONE_URL=${XBACKBONE_URL}
+      - XBACKBONE_TOKEN=${XBACKBONE_TOKEN}
+    command: ["node", "src/index.js", "--mode", "sse"] # Explicitly run in SSE mode
+      # Removed Crawl4AI variables
+      # - CRAWL4AI_API_BASE=${CRAWL4AI_API_BASE}
+      # - CRAWL4AI_API_TOKEN=${CRAWL4AI_API_TOKEN}
+  
