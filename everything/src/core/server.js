@@ -4,16 +4,16 @@ import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
 import axios from 'axios';
 
 /**
- * Core LettaServer class that handles initialization and API communication
+ * Core ResumeRxServer class that handles initialization and API communication
  */
-export class LettaServer {
+export class ResumeRxServer {
     /**
-     * Initialize the Letta MCP server
+     * Initialize the ResumeRx MCP server
      */
     constructor() {
         // Initialize MCP server
         this.server = new Server({
-            name: 'letta-server',
+            name: 'resumerx-server',
             version: '0.1.0',
         }, {
             capabilities: {

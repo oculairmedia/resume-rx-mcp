@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { LettaServer } from './core/server.js';
+import { ResumeRxServer } from './core/server.js';
 import { registerToolHandlers } from './tools/index.js';
 import { runStdio, runSSE, runHTTP } from './transports/index.js';
 
@@ -7,12 +7,12 @@ import { runStdio, runSSE, runHTTP } from './transports/index.js';
 dotenv.config();
 
 /**
- * Initialize and run the Letta MCP server
+ * Initialize and run the ResumeRx MCP server
  */
 async function main() {
     try {
         // Create server instance
-        const server = new LettaServer();
+        const server = new ResumeRxServer();
 
         // Register all tool handlers
         registerToolHandlers(server);
@@ -23,17 +23,17 @@ async function main() {
 
         // Run server with appropriate transport
         if (useHTTP) {
-            console.log('Starting Letta server with HTTP transport');
+            console.log('Starting ResumeRx server with HTTP transport');
             await runHTTP(server);
         } else if (useSSE) {
-            console.log('Starting Letta server with SSE transport');
+            console.log('Starting ResumeRx server with SSE transport');
             await runSSE(server);
         } else {
-            console.log('Starting Letta server with stdio transport');
+            console.log('Starting ResumeRx server with stdio transport');
             await runStdio(server);
         }
     } catch (error) {
-        console.error('Failed to start Letta server:', error);
+        console.error('Failed to start ResumeRx server:', error);
         process.exit(1);
     }
 }

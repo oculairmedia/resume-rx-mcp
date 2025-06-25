@@ -1,6 +1,6 @@
-# Letta MCP Server
-
-This directory contains the reorganized Letta MCP server code with a more logical structure.
+# ResumeRx MCP Server
+ 
+This directory contains the reorganized ResumeRx MCP server code with a more logical structure.
 
 ## Directory Structure
 

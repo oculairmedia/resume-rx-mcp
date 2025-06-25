@@ -3,7 +3,7 @@ import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
 
 /**
  * Run the server using SSE transport
- * @param {Object} server - The LettaServer instance
+ * @param {Object} server - The ResumeRxServer instance
  */
 export async function runSSE(server) {
     try {
@@ -241,7 +241,7 @@ export async function runSSE(server) {
         
         const PORT = process.env.PORT || 3001;
         const httpServer = app.listen(PORT, () => {
-            console.log(`Letta SSE server is running on port ${PORT}`);
+            console.log(`ResumeRx SSE server is running on port ${PORT}`);
             console.log(`API credentials: ${server.apiBase ? 'Available' : 'Not available'}`);
             console.log(`Reconnection enabled: max attempts=${maxReconnectAttempts}, initial delay=${reconnectDelay}ms`);
             console.log(`Connection tracking: enabled with ping interval (30s)`);

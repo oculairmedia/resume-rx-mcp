@@ -80,7 +80,7 @@ class InMemoryEventStore {
 
 /**
  * Run the server using HTTP streaming transport (MCP compatible)
- * @param {Object} server - The LettaServer instance
+ * @param {Object} server - The ResumeRxServer instance
  */
 export async function runHTTP(server) {
     try {
@@ -94,8 +94,8 @@ export async function runHTTP(server) {
                 'http://localhost',
                 'http://127.0.0.1',
                 'http://192.168.50.90',
-                'https://letta.oculair.ca',
-                'https://letta2.oculair.ca'
+                'https://resumerx.oculair.ca',
+                'https://resumerx2.oculair.ca'
             ];
 
             if (origin && !allowedOrigins.some(allowed => origin.startsWith(allowed))) {

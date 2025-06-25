@@ -30,7 +30,7 @@ import { CallToolRequestSchema, ListToolsRequestSchema, McpError, ErrorCode } fr
 
 /**
  * Register all tool handlers with the server
- * @param {Object} server - The LettaServer instance (should likely be typed more specifically if possible)
+ * @param {Object} server - The ResumeRxServer instance (should likely be typed more specifically if possible)
  */
 export function registerToolHandlers(server) {
     // Register tool definitions

@@ -487,11 +487,22 @@ class ResumeRxServer {
     }
 }
 
-const server = new LettaServer();
+const { ResumeRxServer } = require('./dist/core/server.js');
 const useSSE = process.argv.includes('--sse');
 
+const server = new ResumeRxServer();
+
 if (useSSE) {
-    server.runSSE().catch(console.error);
+    // If you have a runSSE method, call it; otherwise, use the new entrypoint
+    if (typeof server.runSSE === 'function') {
+        server.runSSE().catch(console.error);
+    } else {
+        console.log('Please use src/index.js as the main entrypoint for ResumeRx.');
+    }
 } else {
-    server.runStdio().catch(console.error);
+    if (typeof server.runStdio === 'function') {
+        server.runStdio().catch(console.error);
+    } else {
+        console.log('Please use src/index.js as the main entrypoint for ResumeRx.');
+    }
 }
