@@ -1,11 +1,11 @@
-# Letta MCP Server with SSE Transport
+# ResumeRx MCP Server with SSE Transport
 
-This repository contains a Model Context Protocol (MCP) server implementation for the Letta platform with Server-Sent Events (SSE) transport support.
+This repository contains a Model Context Protocol (MCP) server implementation for the ResumeRx platform with Server-Sent Events (SSE) transport support.
 
 ## Features
 
 - Supports both SSE and stdio transports
-- Provides access to Letta API functionality through MCP tools
+- Provides access to ResumeRx API functionality through MCP tools
 - Secure by default with non-root user in Docker
 - Environment variable configuration
 - Health check endpoint
@@ -19,10 +19,10 @@ This repository contains a Model Context Protocol (MCP) server implementation fo
    cp .env.example .env
    ```
 
-2. Edit the `.env` file with your Letta API credentials:
+2. Edit the `.env` file with your ResumeRx API credentials:
    ```
-   LETTA_BASE_URL=https://your-letta-api-url.com
-   LETTA_PASSWORD=your_password_here
+   ResumeRx_BASE_URL=https://your-ResumeRx-api-url.com
+   ResumeRx_PASSWORD=your_password_here
    PORT=3001
    NODE_ENV=production
    ```
@@ -43,10 +43,10 @@ You can also build and run the Docker image directly:
 
 ```bash
 # Build the image
-docker build -t oculair/letta-tools-mcp:v1.0.4 .
+docker build -t oculair/ResumeRx-tools-mcp:v1.0.4 .
 
 # Run the container
-docker run -p 3001:3001 --env-file .env --rm -it oculair/letta-tools-mcp:v1.0.4
+docker run -p 3001:3001 --env-file .env --rm -it oculair/ResumeRx-tools-mcp:v1.0.4
 ```
 
 ### Multi-Architecture Build
@@ -62,13 +62,13 @@ To build for multiple architectures (amd64 and arm64):
 2. Build and push:
    ```bash
    docker buildx build --platform linux/amd64,linux/arm64 \
-     -t oculair/letta-tools-mcp:v1.0.4 \
+     -t oculair/ResumeRx-tools-mcp:v1.0.4 \
      --push .
    ```
 
 3. Verify the multi-architecture image:
    ```bash
-   docker manifest inspect oculair/letta-tools-mcp:v1.0.4
+   docker manifest inspect oculair/ResumeRx-tools-mcp:v1.0.4
    ```
 
 ## Development
@@ -96,4 +96,4 @@ To build for multiple architectures (amd64 and arm64):
 To debug the container, you can run it with an interactive shell:
 
 ```bash
-docker run -p 3001:3001 --env-file .env --rm -it --entrypoint bash oculair/letta-tools-mcp:v1.0.4
+docker run -p 3001:3001 --env-file .env --rm -it --entrypoint bash oculair/ResumeRx-tools-mcp:v1.0.4
